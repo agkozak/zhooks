@@ -1,4 +1,4 @@
-# zsh-hooks: Display all ZSH hook arrays and functions
+# zhooks: Display all ZSH hook arrays and functions
 #
 # MIT License
 #
@@ -22,7 +22,7 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 #
-# https://github.com/agkozak/zsh-hooks
+# https://github.com/agkozak/zhooks
 #
 
 ############################################################
@@ -30,7 +30,7 @@
 #
 # Returns true if any functions have been associated with
 # ZSH hooks
-zsh-hooks() {
+zhooks() {
   if (( $(tput colors) >= 8 )); then
     autoload -Uz colors && colors
     local start_color="$fg[yellow]"
