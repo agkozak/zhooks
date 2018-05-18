@@ -14,7 +14,7 @@ or load it using your favorite ZSH framework.
 
 Then run the command `zsh-hooks` from the command line to see a thorough report. You can even use the `zsh-hooks` function in a script (provided, of course, that it sources `zsh-hooks.zsh`), for example:
 
-    if hooks &> /dev/null; then
+    if zsh-hooks &> /dev/null; then
       echo 'Hooks are being used.'
     else
       echo 'This house is clean.'
