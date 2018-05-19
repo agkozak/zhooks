@@ -8,13 +8,13 @@
 
 Simply source zhooks from your `.zshrc`:
 
-    source /path/to/zhooks.zsh
+    source /path/to/zhooks.plugin.zsh
 
 or load it using your favorite ZSH framework. Then run the command `zhooks` from the command line to see a thorough report.
 
 You can even use the `zhooks` function in a script. For example:
 
-    source /path/to/zhooks.zsh
+    source /path/to/zhooks.plugin.zsh
 
     if zhooks &> /dev/null; then
       echo 'Hooks are being used.'
