@@ -1,7 +1,7 @@
 # zhooks
 
 [![MIT License](img/mit_license.svg)](https://opensource.org/licenses/MIT)
-[![GitHub Stars](https://img.shields.io/github/stars/agkozak/zhooks.svg)]
+![GitHub Stars](https://img.shields.io/github/stars/agkozak/zhooks.svg)
 
 **zhooks** is a tool for displaying the contents of all ZSH hook arrays (such as `$precmd_functions`) as well as any hook functions (such as `precmd`) that have been defined. It is intended to be used in debugging conflicts between scripts.
 
