@@ -15,13 +15,17 @@ or load it using your favorite ZSH framework. Then run the command `zhooks` from
 
 You can even use the `zhooks` function in a script. For example:
 
-    source /path/to/zhooks.plugin.zsh
+```sh
+#!/usr/bin/env zsh
 
-    if zhooks &> /dev/null; then
-      echo 'Hooks are being used.'
-    else
-      echo 'This house is clean.'
-    fi
+source /path/to/zhooks.plugin.zsh
+
+if zhooks &> /dev/null; then
+  echo 'Hooks are being used.'
+else
+  echo 'This house is clean.'
+fi
+```
 
 `zhooks` returns true when hooks are being used and false when they are not.
 
