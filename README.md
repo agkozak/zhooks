@@ -24,3 +24,7 @@ You can even use the `zhooks` function in a script. For example:
     fi
 
 `zhooks` returns true when hooks are being used and false when they are not.
+
+<p align=center>
+    <img src="img/mascot.png" alt="zhooks Mascot">
+</p>
