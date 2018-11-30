@@ -52,8 +52,8 @@ zhooks() {
   local i exit_code
   for i in $hook_names; do
     # Display contents of hook arrays
-    local hook_var="\$${i}_functions"
-    local hook_var_content="$(eval print -l $hook_var)"
+    local hook_var="${i}_functions"
+    local hook_var_content="$(print -l ${(eP)hook_var})"
     if [[ -n $hook_var_content ]]; then
       printf '%s:\n%s\n\n' "${start_color}${hook_var}${reset_color}" "$hook_var_content"
       ((exit_code++))
