@@ -56,16 +56,14 @@ zhooks() {
     local hook_var_content="$(print -l ${(eP)hook_var})"
     if [[ -n $hook_var_content ]]; then
       printf '%s:\n%s\n\n' "${start_color}${hook_var}${reset_color}" "$hook_var_content"
-      ((exit_code++))
+      (( exit_code++ ))
     fi
     # Display defined hook functions
-    case $(whence -w $i) in
-      *function)
-        local hook_function="$(which $i)"
-        printf '%s\n\n' "${start_color}${hook_function%%\{*}${reset_color}${hook_function##*\(\)}"
-        ((exit_code++))
-        ;;
-    esac
+    if [[ $(whence -w $i) == *function ]]; then
+      local hook_function="$(whence -c $i)"
+      printf '%s\n\n' "${start_color}${hook_function%%\{*}${reset_color}${hook_function##*\(\)}"
+      (( exit_code++ ))
+    fi
   done
 
   (( exit_code ))
