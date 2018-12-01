@@ -30,6 +30,7 @@
 #
 # Returns true if any functions have been associated with
 # ZSH hooks
+############################################################
 zhooks() {
   if (( $(tput colors) >= 8 )); then
     autoload -Uz colors && colors
