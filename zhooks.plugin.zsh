@@ -32,6 +32,8 @@
 # ZSH hooks
 ############################################################
 zhooks() {
+  emulate -L zsh
+
   if whence tput &> /dev/null && (( $(tput colors) >= 8 )); then
     autoload -Uz colors && colors
     local start_color="$fg[yellow]"
