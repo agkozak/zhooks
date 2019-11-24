@@ -2,7 +2,7 @@
 #
 # MIT License
 #
-# Copyright (c) 2018 Alexandros Kozak
+# Copyright (c) 2018-2019 Alexandros Kozak
 #
 # Permission is hereby granted, free of charge, to any person obtaining a copy
 # of this software and associated documentation files (the "Software"), to deal
@@ -70,4 +70,13 @@ zhooks() {
   done
 
   (( exit_code ))
+}
+
+############################################################
+# Unload function
+#
+# See https://github.com/zdharma/Zsh-100-Commits-Club/blob/master/Zsh-Plugin-Standard.adoc#unload-fun
+############################################################
+zhooks_plugin_unload() {
+  unfunction zhooks $0
 }
