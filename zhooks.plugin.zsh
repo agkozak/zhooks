@@ -34,11 +34,10 @@
 zhooks() {
   emulate -L zsh
 
-  if whence tput &> /dev/null && (( $(tput colors) >= 8 )); then
-    autoload -Uz colors && colors
-    local start_color="$fg[yellow]"
-  else
-    local start_color=''
+  (( ${+terminfo} )) || zmodload zsh/terminfo
+  if (( ${terminfo[colors]:-0} >= 8 )); then
+    local start_color=${(%):-%F{yellow}}
+    local end_color=${(%):-%f}
   fi
 
   local -a hook_names
@@ -58,13 +57,13 @@ zhooks() {
     local hook_var="${i}_functions"
     local hook_var_content="$(print -l -- ${(P)hook_var})"
     if [[ -n $hook_var_content ]]; then
-      printf -- '%s:\n%s\n\n' "${start_color}${hook_var}${reset_color}" "$hook_var_content"
+      printf -- '%s:\n%s\n\n' "${start_color}${hook_var}${end_color}" "$hook_var_content"
       (( exit_code++ ))
     fi
     # Display defined hook functions
-    if [[ $(whence -w $i) == *function ]]; then
+    if (( ${+functions[$i]} )); then
       local hook_function="$(whence -c $i)"
-      printf -- '%s\n\n' "${start_color}${hook_function%%\{*}${reset_color}${hook_function##*\(\)}"
+      printf -- '%s\n\n' "${start_color}${hook_function%%\(*}${end_color}${hook_function#* }"
       (( exit_code++ ))
     fi
   done
