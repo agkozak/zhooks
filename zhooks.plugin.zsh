@@ -32,7 +32,6 @@
 # ZSH hooks
 ############################################################
 zhooks() {
-  emulate -L zsh
 
   (( ${+terminfo} )) || zmodload zsh/terminfo
   if (( ${terminfo[colors]:-0} >= 8 )); then
@@ -52,7 +51,7 @@ zhooks() {
     )
 
   local i exit_code
-  for i in $hook_names; do
+  for i in ${hook_names[@]}; do
     # Display contents of hook arrays
     local hook_var="${i}_functions"
     local hook_var_content="$(print -l -- ${(P)hook_var})"
