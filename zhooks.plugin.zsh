@@ -1,4 +1,4 @@
-# zhooks: Display all ZSH hook arrays and functions
+# zhooks: Display all Zsh hook arrays and functions
 #
 # MIT License
 #
@@ -26,10 +26,10 @@
 #
 
 ############################################################
-# Display all ZSH hook arrays and functions
+# Display all Zsh hook arrays and functions
 #
 # Returns true if any functions have been associated with
-# ZSH hooks
+# Zsh hooks
 ############################################################
 zhooks() {
 
