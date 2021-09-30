@@ -50,18 +50,18 @@ zhooks() {
     'zshexit'
     )
 
-  local hook ret
+  local hook hook_array_name hook_array_content hook_function ret
   for hook in ${hooks[@]}; do
     # Display contents of hook arrays
-    local hook_array_name="${hook}_functions"
-    local hook_array_content=$(print -l -- ${${(P)hook_array_name}[@]})
+    hook_array_name="${hook}_functions"
+    hook_array_content=$(print -l -- ${${(P)hook_array_name}[@]})
     if [[ -n $hook_array_content ]]; then
       printf -- '%s:\n%s\n\n' "${start_color}${hook_array_name}${end_color}" "$hook_array_content"
       (( ret++ ))
     fi
     # Display defined hook functions
     if (( ${+functions[$hook]} )); then
-      local hook_function=$(whence -c $hook)
+      hook_function=$(whence -c $hook)
       printf -- '%s\n\n' "${start_color}${hook_function%%\(*}${end_color}${hook_function#* }"
       (( ret++ ))
     fi
