@@ -39,8 +39,8 @@ zhooks() {
     local end_color=${(%):-%f}
   fi
 
-  local -a hook_names
-  hook_names=(
+  local -a hooks
+  hooks=(
     'chpwd' \
     'periodic' \
     'precmd' \
@@ -50,24 +50,24 @@ zhooks() {
     'zshexit'
     )
 
-  local i exit_code
-  for i in ${hook_names[@]}; do
+  local hook ret
+  for hook in ${hooks[@]}; do
     # Display contents of hook arrays
-    local hook_var="${i}_functions"
-    local hook_var_content="$(print -l -- ${(P)hook_var})"
-    if [[ -n $hook_var_content ]]; then
-      printf -- '%s:\n%s\n\n' "${start_color}${hook_var}${end_color}" "$hook_var_content"
-      (( exit_code++ ))
+    local hook_array_name="${hook}_functions"
+    local hook_array_content=$(print -l -- ${${(P)hook_array_name}[@]})
+    if [[ -n $hook_array_content ]]; then
+      printf -- '%s:\n%s\n\n' "${start_color}${hook_array_name}${end_color}" "$hook_array_content"
+      (( ret++ ))
     fi
     # Display defined hook functions
-    if (( ${+functions[$i]} )); then
-      local hook_function="$(whence -c $i)"
+    if (( ${+functions[$hook]} )); then
+      local hook_function=$(whence -c $hook)
       printf -- '%s\n\n' "${start_color}${hook_function%%\(*}${end_color}${hook_function#* }"
-      (( exit_code++ ))
+      (( ret++ ))
     fi
   done
 
-  (( exit_code ))
+  (( ret ))
 }
 
 ############################################################
