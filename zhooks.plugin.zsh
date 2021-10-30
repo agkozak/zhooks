@@ -73,7 +73,7 @@ zhooks() {
 ############################################################
 # Unload function
 #
-# See https://github.com/zdharma/Zsh-100-Commits-Club/blob/master/Zsh-Plugin-Standard.adoc#unload-fun
+# See https://github.com/agkozak/Zsh-100-Commits-Club/blob/master/Zsh-Plugin-Standard.adoc#unload-fun
 ############################################################
 zhooks_plugin_unload() {
   unfunction zhooks $0
