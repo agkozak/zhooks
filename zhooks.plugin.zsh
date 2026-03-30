@@ -50,7 +50,7 @@ zhooks() {
     'zshexit'
     )
 
-  local hook hook_array_name hook_array_content hook_function ret
+  local hook hook_array_name hook_array_content hook_function ret=0
   for hook in ${hooks[@]}; do
     # Display contents of hook arrays
     hook_array_name="${hook}_functions"
