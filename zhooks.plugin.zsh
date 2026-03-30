@@ -41,12 +41,12 @@ zhooks() {
 
   local -a hooks
   hooks=(
-    'chpwd' \
-    'periodic' \
-    'precmd' \
-    'preexec' \
-    'zshaddhistory' \
-    'zsh_directory_name' \
+    'chpwd'
+    'periodic'
+    'precmd'
+    'preexec'
+    'zshaddhistory'
+    'zsh_directory_name'
     'zshexit'
     )
 
