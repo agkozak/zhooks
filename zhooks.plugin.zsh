@@ -33,6 +33,8 @@
 ############################################################
 zhooks() {
 
+  emulate -L zsh
+
   (( ${+terminfo} )) || zmodload zsh/terminfo
   if (( ${terminfo[colors]:-0} >= 8 )); then
     local start_color=${(%):-%F{yellow}}
